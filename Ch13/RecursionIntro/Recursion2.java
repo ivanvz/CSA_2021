@@ -24,4 +24,15 @@ public class Recursion2 {
         else
             return n * fact(n-1);
     }
+
+    public static int power(int base, int powerRaised) {
+        if (powerRaised != 0) {
+
+            // recursive call to power()
+            return (base * power(base, powerRaised - 1));
+        } else {
+            return 1;
+        }
+    }
+
 }
