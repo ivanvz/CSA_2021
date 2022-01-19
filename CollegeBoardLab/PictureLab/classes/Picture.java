@@ -99,7 +99,19 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+
+  public void zeroGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -194,27 +206,28 @@ public class Picture extends SimplePicture
   
   
   /** Method to show large changes in color 
-    * @param edgeDist the distance for finding edges
+//    * @param edgeDist the distance for finding edges
     */
-  public void edgeDetection(int edgeDist)
+
+  public void edgeDetect()
   {
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
     Pixel[][] pixels = this.getPixels2D();
-    Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
+    for (int row = 0; row < pixels.length-1; row++)
     {
-      for (int col = 0; 
-           col < pixels[0].length-1; col++)
+      for (int col = 0; col < pixels[0].length; col++)
       {
-        leftPixel = pixels[row][col];
-        rightPixel = pixels[row][col+1];
-        rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
-          leftPixel.setColor(Color.BLACK);
+        if(Math.abs(pixels[row+1][col].getAverage() - pixels[row][col].getAverage()) >= 20)
+        {
+          pixels[row][col].setBlue(0);
+          pixels[row][col].setGreen(0);
+          pixels[row][col].setRed(0);
+        }
         else
-          leftPixel.setColor(Color.WHITE);
+        {
+          pixels[row][col].setBlue(255);
+          pixels[row][col].setGreen(255);
+          pixels[row][col].setRed(255);
+        }
       }
     }
   }
