@@ -1,11 +1,5 @@
 package Ch14.Excersises.Book;
 
-//********************************************************************
-//  Book.java       Author: Lewis/Loftus/Cocking
-//
-//  Represents a book. Used as the parent of a derived class to
-//  demonstrate inheritance.
-//********************************************************************
 
 public class Book {
     public int pages = 1500;

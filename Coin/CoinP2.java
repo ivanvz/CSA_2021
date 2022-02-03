@@ -13,7 +13,7 @@ public class CoinP2 {
 
     public void flip(){
         FACE=rand.nextInt(2)+1;
-//        FACE=(int) Math.random()*2;
+//       FACE=(int) Math.random()*2;
     }
 
     public boolean isHeads(){
@@ -27,9 +27,9 @@ public class CoinP2 {
     public String toString(){
         String Result;
         if (FACE==HEADS)
-            Result="Headsss";
+            Result="Heads";
         else
-            Result="Tailsss";
+            Result="Tails";
 
         return Result;
     }
