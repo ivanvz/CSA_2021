@@ -1,4 +1,4 @@
-package Coin;
+package src.Coin;
 
 public class CoinP2Driver {
     public static void main(String[] args) {

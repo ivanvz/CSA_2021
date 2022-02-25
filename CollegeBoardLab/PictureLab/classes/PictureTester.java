@@ -44,14 +44,21 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
+
+  public static void testMirrorDiagonal(){
+    Picture temple = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/Swan.jpg");
+    temple.explore();
+    temple.mirrorDiagonal();
+    temple.explore();
+  }
   
   /** Method to test the collage method */
-  public static void testCollage()
-  {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
-  }
+//  public static void testCollage()
+//  {
+//    Picture canvas = new Picture("640x480.jpg");
+//    canvas.createCollage();
+//    canvas.explore();
+//  }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
@@ -59,6 +66,21 @@ public class PictureTester
     Picture swan = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/swan.jpg");
     swan.edgeDetect();
     swan.explore();
+  }
+
+//  public static void testCopy(){
+//    Picture passthrough = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/KatieFancy.jpg");
+//    Picture katie = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/7inX95in.jpg");
+//    katie.copy(passthrough, 0, 0, 200, 200, 200, 200);
+//  }
+
+  public static void testCopyPartial(){
+    Picture katie = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/KatieFancy.jpg");
+    Picture passthrough = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/7inX95in.jpg");
+
+    katie.explore();
+    katie.copyPartial(passthrough, 0, 0, 200, 200, 400, 400);
+    katie.explore();
   }
 
   /** Main method for testing.  Every class can have a main
@@ -79,10 +101,11 @@ public class PictureTester
 //    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorDiagonal();
     //testCollage();
-    //testCopy();
-    testEdgeDetection();
+//    testCopy();
+//    testCopyPartial();
+//    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

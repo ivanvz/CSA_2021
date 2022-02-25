@@ -1,4 +1,4 @@
-package Coin;
+package src.Coin;
 import java.util.ArrayList;
 public class TestMeee {
     public static void main(String args[]){

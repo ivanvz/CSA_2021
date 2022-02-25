@@ -1,4 +1,4 @@
-package Ch13.RecursionIntro;
+package src.Ch13.RecursionIntro;
 import java.util.Scanner;
 public class Recursion2 {
 

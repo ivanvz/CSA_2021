@@ -1,4 +1,4 @@
-package Coin;
+package src.Coin;
 
 public class FlipRace {
     public static void main(String[] args) {

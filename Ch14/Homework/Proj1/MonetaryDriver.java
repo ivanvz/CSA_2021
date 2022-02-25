@@ -15,7 +15,7 @@ public class MonetaryDriver {
 
         System.out.println("Dime: " + dime);
         System.out.println("---COIN-FLIP---");
-        dime.flip();
+//        dime.flip();
         System.out.println("Dime: " + dime);
     }
 }

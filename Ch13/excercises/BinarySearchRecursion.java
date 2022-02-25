@@ -1,4 +1,4 @@
-package Ch13.excercises;
+package src.Ch13.excercises;
 import java.util.Arrays;
 public class BinarySearchRecursion {
     public static int RecBinarySearch (int[] intArray, int lowPos, int highPos, int target){

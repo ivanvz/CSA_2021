@@ -1,8 +1,7 @@
 package Ch14.Homework.Proj1;
 
-import Coin.CoinP2;
 
-public class MonetaryCoin extends CoinP2 {
+public class MonetaryCoin extends src.Coin.CoinP2 {
     int passValue;
 
     public MonetaryCoin(int passValue){

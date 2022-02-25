@@ -1,4 +1,4 @@
-package Coin;
+package src.Coin;
 
 import java.util.Random;
 public class CoinP2 {

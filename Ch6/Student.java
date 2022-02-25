@@ -1,4 +1,4 @@
-package Ch6;
+package src.Ch6;
 
 public class Student
 {

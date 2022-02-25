@@ -1,4 +1,4 @@
-package Ch6;
+package src.Ch6;
 
 public class StudentBody3 {
     public static void main(String[] args) {
