@@ -7,6 +7,8 @@ public class ProfileRoom {
     private String customerName;
     private int customerAge;
     private String customerAddress;
+    private double foodItemCost;
+    private double customerBalance;
 
     public ProfileRoom(int roomNumber){
         this.Occupied = false;
@@ -14,11 +16,14 @@ public class ProfileRoom {
         this.customerName = null;
         this.customerAge = 0;
         this.customerAddress = null;
+        this.customerBalance = 0;
+        this.foodItemCost = 0;
     }
 
     public boolean isOccupied() {
         return Occupied;
     }
+
 
     public void addCustomer(String customerName, int customerAge, String customerAddress){
         this.customerName = customerName;
@@ -50,6 +55,15 @@ public class ProfileRoom {
 
     public String getCustomerAddress() {
         return customerAddress;
+    }
+
+    public double getCustomerBalance(){
+        return customerBalance;
+    }
+
+    public void addToCustomerBalance(double foodItemCost){
+        this.foodItemCost = foodItemCost;
+        customerBalance = customerBalance + foodItemCost;
     }
 
     @Override

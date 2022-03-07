@@ -7,7 +7,7 @@ public class managementTerminal {
 
         Hotel hotel = new Hotel();
 
-        System.out.println("___Work in Progress HMS___");
+        System.out.println("[[[ Work in Progress HMS 2.0 ]]]");
         managerMenu(hotel);
 
     }
@@ -17,38 +17,40 @@ public class managementTerminal {
 
         System.out.println();
         System.out.println("[1] Add Customer Profile");
-//        System.out.println("[2] View All Rooms");
-//        System.out.println("[3] Display Empty Rooms");
-//        System.out.println("[4] Delete Customer from system");
+        System.out.println("[2] View All Rooms (Vacant and Occupied)");
+        System.out.println("[3] Display Vacant Rooms");
+        System.out.println("[4] Delete Customer from system");
         System.out.println("[5] Search Profile by Customer name");
         System.out.println("[6] List Customer Names");
-        System.out.println("[7] Exit");
+        System.out.println("[7] Customer Food Order");
+        System.out.println("[9] Exit");
 
         System.out.println("Select Option");
 
         int s = scanner.nextInt();
 
-        String name = "";
+        String name;
         int age;
-        String address = "";
-
-
+        String address;
 
         switch (s){
             case 1:
-                System.out.println("Enter customer name");
-                scanner.nextLine();
-                name = scanner.nextLine();
-                System.out.println("Enter customer age");
-                age = scanner.nextInt();
-                System.out.println("Enter customer address");
-                scanner.nextLine();
-                address = scanner.nextLine();
+                if (hotel.areAllRoomsOccupied()) {
+                    break;
+                }
+                else {
+                    System.out.println("Enter customer name");
+                    scanner.nextLine();
+                    name = scanner.nextLine();
+                    System.out.println("Enter customer age");
+                    age = scanner.nextInt();
+                    System.out.println("Enter customer address");
+                    scanner.nextLine();
+                    address = scanner.nextLine();
 
-                hotel.AddCustomer(name, age, address);
-
+                    hotel.AddCustomer(name, age, address);
+                }
                 break;
-
             case 2:
                 hotel.ViewRooms();
                 break;
@@ -71,12 +73,32 @@ public class managementTerminal {
                 hotel.viewOrderedName();
                 break;
             case 7:
-                System.out.println("Closing");
+
+                System.out.println("[1] Butter Chicken - $14");
+                System.out.println("[2] House Burger - $15");
+                System.out.println("[3] Pad Thai - $12");
+                System.out.println("[4] Overpriced Dasani Water - $17");
+
+                int n = scanner.nextInt();
+
+                double[] lut = {14.0, 15.0, 12.00, 17.0};
+                double balance = lut[n - 1];
+
+                System.out.println("Enter Customer name for order billing");
+                scanner.nextLine();
+                name = scanner.nextLine();
+                hotel.addToBalance(name, balance);
+                hotel.orderThankMessage(name);
+
+                managerMenu(hotel);
+            case 9:
+                System.out.println("Goodbye");
+                break;
             default:
                 System.out.println("Please enter a valid input");
         }
 
-        if( s != 7 )
+        if( s != 9 )
             managerMenu(hotel);
     }
 }

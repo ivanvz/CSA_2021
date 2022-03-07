@@ -22,6 +22,8 @@ public class Hotel {
         if(profileRoom != null){
             profileRoom.removeCustomer();
         }
+
+        System.out.println("---Above customer has been removed from system.---");
     }
 
     public void addRoom(ProfileRoom profileRoom){
@@ -31,6 +33,15 @@ public class Hotel {
     public void AddCustomer(String customerName, int customerAge, String customerAddress){
         profileRooms[currentRoom].addCustomer(customerName, customerAge, customerAddress);
         currentRoom++;
+    }
+
+    public boolean areAllRoomsOccupied(){
+        for(ProfileRoom profileRoom : profileRooms)
+            if (profileRooms[profileRooms.length - 1].isOccupied()){
+                System.out.println("All Rooms are occupied.");
+                return true;
+            }
+        return false;
     }
 
     public void ViewRooms(){
@@ -43,7 +54,7 @@ public class Hotel {
     public void displayEmptyRooms(){
         for(ProfileRoom profileRoom : profileRooms)
             if(!profileRoom.isOccupied())
-                System.out.println("ProfileRoom " + profileRoom.getRoomNumber() + " is available");
+                System.out.println("Room " + profileRoom.getRoomNumber() + " is available");
 
     }
 
@@ -55,12 +66,39 @@ public class Hotel {
                     System.out.println("Occupant Name: " + profileRoom.getCustomerName());
                     System.out.println("Occupant Age: " + profileRoom.getCustomerAge());
                     System.out.println("Occupant Address: " + profileRoom.getCustomerAddress());
+                    System.out.println("Occupant Balance: " + profileRoom.getCustomerBalance());
                     return profileRoom;
                 }
             }
         }
 
         System.out.println("No room is occupied by " + name);
+        return null;
+    }
+
+    public ProfileRoom addToBalance(String customer, double addCost){
+        for(ProfileRoom profileRoom : profileRooms){
+            if(profileRoom.isOccupied()){
+                if(profileRoom.getCustomerName().equalsIgnoreCase(customer)) {
+                    profileRoom.addToCustomerBalance(addCost);
+                    return profileRoom;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ProfileRoom orderThankMessage(String customer){
+        for(ProfileRoom profileRoom : profileRooms){
+            if(profileRoom.isOccupied()){
+                if(profileRoom.getCustomerName().equalsIgnoreCase(customer)) {
+                    System.out.println("Thank you for your order! It will be delivered shortly.");
+                    System.out.println("Your current outstanding bill is: $" + profileRoom.getCustomerBalance());
+                    return profileRoom;
+                }
+            }
+        }
+        System.out.println("No room is occupied by " + customer);
         return null;
     }
 
