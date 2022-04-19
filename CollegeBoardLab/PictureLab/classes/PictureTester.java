@@ -53,12 +53,13 @@ public class PictureTester
   }
   
   /** Method to test the collage method */
-//  public static void testCollage()
-//  {
-//    Picture canvas = new Picture("640x480.jpg");
-//    canvas.createCollage();
-//    canvas.explore();
-//  }
+  public static void testCollage()
+  {
+    Picture canvas = new Picture("/Users/ivanzhivaga/OneDrive/Documents/12th Grade/CompSci/IntelliJTest/src/CollegeBoardLab/PictureLab/images/7inX95in.jpg");
+    canvas.explore();
+    canvas.createCollage();
+    canvas.explore();
+  }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
@@ -101,8 +102,8 @@ public class PictureTester
 //    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
-    testMirrorDiagonal();
-    //testCollage();
+//    testMirrorDiagonal();
+    testCollage();
 //    testCopy();
 //    testCopyPartial();
 //    testEdgeDetection();
